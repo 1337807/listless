@@ -1,0 +1,6 @@
+<div class='container'>
+  <%= tag('br') if flash.any? %>
+  <% flash.each do |key, value| %>
+    <%= alert_box value, context: key %>
+  <% end %>
+</div>
