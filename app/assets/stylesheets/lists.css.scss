@@ -1,0 +1,16 @@
+// Place all the styles related to the lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lists .list-name {
+  font-size: 1.2em;
+}
+
+.item-url, .item-price {
+  padding: 1em;
+  display: inline-block;
+}
+
+.item-price {
+  color: green;
+}
