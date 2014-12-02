@@ -26,6 +26,18 @@ class ItemsController < ApplicationController
     redirect_to list_path(item.list)
   end
 
+  def mark
+    item = Item.find(params[:id])
+    item.update_attributes(marked: true, marker_id: current_user.id)
+    redirect_to list_path(item.list)
+  end
+
+  def unmark
+    item = Item.find(params[:id])
+    item.update_attributes(marked: false, marker_id: current_user.id)
+    redirect_to list_path(item.list)
+  end
+
   private
 
   def item_params

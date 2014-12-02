@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :list
+  belongs_to :marker, class_name: 'User'
 
   def self.pennies_from_price(raw_price)
     (raw_price.gsub('$','').to_f * 100).to_i

@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
-  get 'items/index'
-
-  get 'items/new'
-
-  get 'items/create'
-
-  get 'items/show'
-
   devise_for :users
   resources :lists do
     resources :items
   end
+
+  put '/lists/:list_id/items/:id/mark', to: 'items#mark'
+  put '/lists/:list_id/items/:id/unmark', to: 'items#unmark'
+
   root 'welcome#index'
 end
