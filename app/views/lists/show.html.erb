@@ -4,14 +4,18 @@
     <%= @list.name %> <span class='shrink'>by <%= @list.user.email %></span>
   </h1><br/>
 
-  <%= link_to 'Add an item', new_list_item_path(@list), class: 'btn btn-success' %><br/><br/>
+  <% if @owner %>
+    <%= link_to('Add an item', new_list_item_path(@list), class: 'btn btn-success') %>
+    <br/>
+    <br/>
+  <% end %>
 
   <% @items.each do |item| %>
 
     <% if @owner %>
       <div class='buttons right'>
-        <%= link_to raw("Edit <i class='glyphicon glyphicon-pencil'></i>"), class: 'btn btn-primary' %>
-        <%= link_to raw("Delete <i class='glyphicon glyphicon-remove'></i>"), class: 'btn btn-danger' %>
+        <%= link_to raw("Edit <i class='glyphicon glyphicon-pencil'></i>"), edit_list_item_path(@list, item), class: 'btn btn-primary' %>
+        <%= link_to raw("Delete <i class='glyphicon glyphicon-remove'></i>"), list_item_path(@list, item), data: { confirm: 'Are you sure you want to delete this item?' }, method: :delete, class: 'btn btn-danger' %>
       </div>
     <% end %>
 
