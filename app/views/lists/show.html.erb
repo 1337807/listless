@@ -1,14 +1,26 @@
 <div class='container list'>
-  <h1><%= @list.name %></h1>
+  <h1>
+    <i class="glyphicon glyphicon-list-alt<%= ' owner' if @owner %>"></i>
+    <%= @list.name %> <span class='shrink'>by <%= @list.user.email %></span>
+  </h1><br/>
+
+  <%= link_to 'Add an item', new_list_item_path(@list), class: 'btn btn-success' %><br/><br/>
 
   <% @items.each do |item| %>
-    <%= link_to item.url do %>
-      <div class='col-md-5'>
-        <%= panel title: item.name do %>
-          <span class='item-url'><%= truncate(item.url, length: 50) %></span>
-          <span class='item-price right'>$<%= item.price %></span>
-        <% end %>
+
+    <% if @owner %>
+      <div class='buttons right'>
+        <%= link_to raw("Edit <i class='glyphicon glyphicon-pencil'></i>"), class: 'btn btn-primary' %>
+        <%= link_to raw("Delete <i class='glyphicon glyphicon-remove'></i>"), class: 'btn btn-danger' %>
       </div>
     <% end %>
+
+    <%= link_to item.url do %>
+      <%= panel title: item.name do %>
+        <span class='item-url'><%= truncate(item.url, length: 50) %></span>
+        <span class='item-price right'>$<%= item.price_in_dollars %></span>
+      <% end %>
+    <% end %>
+
   <% end %>
 </div>

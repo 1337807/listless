@@ -1,0 +1,11 @@
+<div class='container'>
+  <br/>
+  <div class='col-md-4'>
+    <%= form_for(@item, layout: :basic, url: list_items_path) do |f| %>
+      <%= f.text_field :name, placeholder: 'Puppy!' %>
+      <%= f.text_field :url, placeholder: 'http://puppy.com' %>
+      <%= f.text_field :price, placeholder: '$7' %>
+      <%= f.submit 'Create item', class: 'btn-success' %>
+    <% end %>
+  </div>
+</div>

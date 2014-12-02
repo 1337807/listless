@@ -1,15 +1,16 @@
 <%= navbar do %>
   <%= vertical do %>
-    <%= link_to 'Listless', root_path %>
+    <%= link_to raw("<i class='glyphicon glyphicon-list-alt home'></i> Listless"), root_path %>
   <% end %>
 
   <%= horizontal do %>
     <%= nav class: 'navbar-right' do %>
       <% if current_user %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <%= link_to raw("<i class='glyphicon glyphicon-list-alt'></i> Lists"), lists_path %>
+        <%= link_to raw("<i class='glyphicon glyphicon-log-out'></i> Sign out"), destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to 'Sign in', new_user_session_path %>
-        <%= link_to 'Sign up', new_user_registration_path %>
+        <%= link_to raw("<i class='glyphicon glyphicon-log-in'></i> Sign in"), new_user_session_path %>
+        <%= link_to raw("<i class='glyphicon glyphicon-user'></i> Sign up"), new_user_registration_path %>
       <% end %>
     <% end %>
   <% end %>

@@ -14,6 +14,7 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 .navbar {
@@ -34,4 +35,20 @@
 
 .clear {
   clear: both;
+}
+
+i.owner.glyphicon-list-alt {
+  color: #9966cc;
+}
+
+i.glyphicon-list-alt {
+  color: #3399cc;
+}
+
+i.home.glyphicon-list-alt {
+  color: orange;
+}
+
+.shrink {
+  font-size: .5em;
 }

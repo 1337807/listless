@@ -2,7 +2,8 @@ class ListsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @lists = current_user.lists
+    @current_user_lists = current_user.lists
+    @other_lists = List.all - @current_user_lists
   end
 
   def new
@@ -23,6 +24,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @items = @list.items
+    @owner = (@list.user == current_user)
   end
 
   private
