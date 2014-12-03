@@ -13,6 +13,8 @@ gem 'bh'
 gem "devise"
 gem "cancan"
 gem "bootstrap-sass"
+gem "omniauth"
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem "capybara"
