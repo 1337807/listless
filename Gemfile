@@ -15,6 +15,7 @@ gem "cancan"
 gem "bootstrap-sass"
 gem "omniauth"
 gem "omniauth-google-oauth2"
+gem "foreman"
 
 group :development, :test do
   gem "capybara"
