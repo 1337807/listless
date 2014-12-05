@@ -1,0 +1,9 @@
+<div class='container'>
+  <br/>
+  <div class='col-md-4'>
+    <%= form_for(@list, layout: :basic) do |f| %>
+      <%= f.text_field :name, placeholder: 'e.g. Christmas list' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

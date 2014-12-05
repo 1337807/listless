@@ -2,8 +2,13 @@
   <h2>Your lists</h2>
 
   <% @current_user_lists.each do |list| %>
+    <div class='buttons right'>
+      <%= link_to raw("Edit <i class='glyphicon glyphicon-pencil'></i>"), edit_list_path(list), class: 'btn btn-primary' %>
+      <%= link_to raw("Delete <i class='glyphicon glyphicon-remove'></i>"), list_path(list), data: { confirm: 'Are you sure you want to delete this list?' }, method: :delete, class: 'btn btn-danger' %>
+    </div>
+
     <%= link_to list_path(list), class: 'list-name' do %>
-      <%= panel raw("<i class='glyphicon glyphicon-list-alt owner'></i> #{list.name}") %>
+      <%= panel list.name %>
     <% end %>
   <% end %>
 
