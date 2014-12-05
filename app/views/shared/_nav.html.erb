@@ -9,9 +9,7 @@
         <%= link_to raw("<i class='glyphicon glyphicon-list-alt'></i> Lists"), lists_path %>
         <%= link_to raw("<i class='glyphicon glyphicon-log-out'></i> Sign out of #{current_user.email}"), destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to raw("<i class='glyphicon glyphicon-log-in'></i> Sign in"), new_user_session_path %>
-        <%= link_to raw("<i class='glyphicon glyphicon-user'></i> Sign up"), new_user_registration_path %>
-        <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+        <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), id: 'google_auth' %>
       <% end %>
     <% end %>
   <% end %>
